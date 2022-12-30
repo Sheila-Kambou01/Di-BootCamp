@@ -45,5 +45,6 @@ if n==m:
 x=input("Quelle est votre taille?")
 if x>145:
     print("Vous avez atteint la taille pour pouvoir rouler")
-else
+else:
     print("Vous devez attendre encore un peu")
+

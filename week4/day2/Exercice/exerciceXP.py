@@ -104,38 +104,47 @@ for j in l:
 print(l)
 
 
-#Exercice10
+#Exercice10#
+sandwich_orders = ["Tuna sandwich", "Avocado sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
+finished_sandwiches = []
+
+while 1 :
+    fini = input("Ya t il un sandwich de fini? 'oui' ou 'non' ")
+    if fini.lower() == "oui" and sandwich_orders != []:
+       finished_sandwiches.append(sandwich_orders[0])
+       sandwich_orders.remove(sandwich_orders[0])
+       if len(sandwich_orders) != 0 :
+            print("Plus que", len(sandwich_orders))
+       else :
+            print("Finish")
+    elif sandwich_orders == [] :
+        print("Listes des sandwich préparés :")
+        for sandwich in finished_sandwiches :
+            print(sandwich)
+        break
+    else :
+        print("Ok j'attends encore un peu")
 
 
+#Exercice11#
+sandwich_orders = ["Pastrami sandwich", "Tuna sandwich", "Avocado sandwich","Pastrami sandwich", "Egg sandwich", "Sabih sandwich", "Pastrami sandwich"]
+finished_sandwiches = []
+while 1 :
+    if "Pastrami sandwich" in sandwich_orders :
+        sandwich_orders.remove("Pastrami sandwich")
+    else :
+        break
+print("Plus de Pastrami sandwich")
+while sandwich_orders != [] :
+    fini = input("Ya t il un sandwich de fini? 'oui' ou 'non' ")
+    if fini.lower() == "oui" and sandwich_orders != []:
+        finished_sandwiches.append(sandwich_orders[0])
+        sandwich_orders.remove(sandwich_orders[0])
+        if len(sandwich_orders) != 0 :
+            print("Plus que", len(sandwich_orders))
+        else :
+            print("Finish")
+    else :
+        print("Ok j'attends encore un peu")
 
-
-
-
-
-
-
-#########
-num=0
-while num <= 10:    
-    print(num)   
-    num += 1
-
-for i in range(10):
-    print(i)
-
-liste=["Armand", "Rolant", "Pacome", "Salif", "Fanta", "Sali", "Armel"]
-for i in liste:
-    print(i)
-
-Liste=["Armand", "Rolant", "Pacome", "Salif", "Fanta", "Sali", "Armel"]
-Liste=[{x**2:Liste[x]} for x in range(len(Liste))]
-print(Liste)
-
-Liste=["Armand", "Rolant", "Pacome", "Salif", "Fanta", "Sali", "Armel"]
-diction={}
-for i in range(len(Liste)):
-    diction[i**2]=Liste[i]
-print(diction)
-for i in diction:
-    print(i,diction[i])
-
+print("Listes des sandwich préparés :",finished_sandwiches)
