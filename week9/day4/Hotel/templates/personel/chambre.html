@@ -1,0 +1,43 @@
+{% extends 'bose.html' %}
+{% block content %}
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+                          <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">Liste des Chambres</h6>
+                          </div>
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                              <th>ID</th>
+                              <th>Nom</th>
+                              <th>Taille</th>
+                              <th>Montant</th>
+                              <th>Date Amenagement</th>
+
+                              <th>Actions</th>
+                          </thead>
+      <tbody>
+        {% for pers in chambre %}
+        <tr>
+          
+          <td>{{pers.id}}</td>
+          <td>{{pers.type_chambre_id.nom}}</td>
+          <td>{{pers.taille}} m²</td>
+          <td>{{pers.cout}} mille</td>
+          <td>{{pers.date_creation}}</td>
+          <td>
+            <a href='{% url 'afficher' pers.id %}' class = 'btn btn-success btn-sm'>Detail</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+</div>
+</div>
+
+</div>
+</div>
+    
+    {% endblock content %}

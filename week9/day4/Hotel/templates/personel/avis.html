@@ -1,0 +1,38 @@
+{% extends 'bose.html' %}
+{% block content %}
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+                          <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">Liste des Chambres</h6>
+                          </div>
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                              <th>ID</th>
+                              <th>Nom du client</th>
+                              <th>Commentaires</th>
+                              <th>Actions</th>
+                          </thead>
+      <tbody>
+        {% for pers in avis %}
+        <tr>
+          
+          <td>{{pers.id}}</td>
+          <td>{{pers.client_id.nom}} {{pers.client_id.prenom}}</td>
+          <td>{{pers.avis}}</td>
+          <td>
+            <a href='{% url 'afficher' pers.id %}' class = 'btn btn-danger btn-sm'>Supprimer</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+</div>
+</div>
+
+</div>
+</div>
+    
+    {% endblock content %}

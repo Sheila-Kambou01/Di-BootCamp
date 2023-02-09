@@ -1,0 +1,56 @@
+{%load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Signin Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+
+ 
+
+    
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/signin.css'%}" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form method='POST' action="">
+    {% csrf_token %}
+    <img class="mb-4" src="{% static 'image/fondEn.webp' %}" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Laisser un avis  </h1>
+    <div class="form-floating">
+     
+        <label for="client">Taille du véhicule</label>
+      </div>
+      <div class="form-floating">
+        <select class="form-control" name="client" required>
+          {% for voi in voit %}
+           <option value='{{voi.id }}'>{{ voi.nom }} {{ voi.prenom }}</option>
+         {% endfor %}
+      </select>
+        <label for="voiture">Identifiant client</label>
+      </div>
+
+    <div class="form-floating">
+      <textarea type="text" class="form-control" id="email" name="avis" placeholder="votre commentaire"></textarea>
+    </div>
+    <br>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Valider</button>
+  </form>
+</main>
+
+
+    
+  </body>
+</html>

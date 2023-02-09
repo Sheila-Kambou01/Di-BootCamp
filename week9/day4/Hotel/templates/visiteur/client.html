@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class='col-sm-12'>
+    <h3 class="text-center">Listes des Clients</h3>
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom(s)</th>
+          <th scope="col">Adresse</th>
+          <th scope="col">Email</th>
+          <th scope="col">Ville</th>
+          <th scope="col">Pays</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pers in clients %}
+        <tr>
+          <td>{{pers.id}}</td>
+          <td>{{pers.nom}}</td>
+          <td>{{pers.prenom}}</td>
+          <td>{{pers.adresse}}</td>
+          <td>{{pers.email}}</td>
+          <td>{{pers.ville}}</td>
+          <td>{{pers.pays}}</td>
+          <td>
+            <a href='{% url 'modifier_cl' pers.id %}' class = 'btn btn-warning btn-sm'>Modifier</a>
+            
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+   </div>
+    
+    {% endblock content %}

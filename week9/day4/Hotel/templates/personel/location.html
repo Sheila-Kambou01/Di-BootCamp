@@ -1,0 +1,60 @@
+{% extends 'bose.html' %}
+{% block content %}
+<div class="container-fluid">
+  <div class="card shadow mb-4">
+                          <div class="card-header py-3">
+                              <h6 class="m-0 font-weight-bold text-primary">Liste des Reserverations</h6>
+                          </div>
+                          <div class="card-body">
+                              <div class="table-responsive">
+                                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                          <thead>
+                              <th>Nom</th>
+                              <th>Prenom</th>
+                              <th>Chambres Reserver </th>
+                              <th>Montant</th>
+                              <th>Date location</th>
+                              <th>Date Liberation</th>
+                              <th>Statut</th>
+                              <th>Actions</th>
+                          </thead>
+      <tbody>
+        {% for pers in locations %}
+        <tr>
+          
+          <td>{{pers.client_id.nom}}</td>
+          <td>{{pers.client_id.prenom}}</td>
+          <td>{{pers.chambre_id.type_chambre_id.nom}}</td>
+          <td>{{pers.cout}} mille</td>
+          <td>{{pers.date_location}}</td>
+          <td>{{pers.date_retour}}</td>
+          
+          <td class="edit">
+            {%if pers.statu  %}
+            <a href='#' class = 'btn btn-danger btn-sm'> Terminé</a>
+            {% else %} 
+            <a href='#' class = 'btn btn-warning btn-sm'>En cour</a>
+            {% endif %}
+          </td>
+          <td>
+            <a href='{% url 'afficher' pers.id %}' class = 'btn btn-success btn-sm'>Detail</a>
+            <a href='{% url 'modifier_loc' pers.id %}' class = 'btn btn-primary btn-sm'>Modifier</a>
+            <form action='{% url "supprimer" pers.id %}' method='Post' class='d-inline'>
+              {% csrf_token %}
+             <input type='submit' class='btn btn-danger btn-sm' value='Supprimer' >
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+</div>
+</div>
+
+</div>
+</div>
+    
+    {% endblock content %}
+
+  

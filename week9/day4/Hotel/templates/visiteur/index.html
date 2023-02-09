@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block content %}
+
+<div class="row mb-2">
+{% for ani in voiture %} 
+<div class="col-md-6">
+  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-350 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong class="d-inline-block mb-2 text-primary">{{ani.type_chambre_id.nom}}</strong>
+      <h3 class="mb-0">{{ani.cout}} Milles</h3>
+      <div class="mb-1 text-muted">{{ani.date_creation}}</div>
+      <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+      <h3 class="mb-0">{{ani.taille}}m²</h3>
+    </div>
+    <div class="col-auto d-none d-lg-block">
+      <img src="{{ ani.photo.url }}" width=250 height=200 >
+     </div> 
+  </div>
+</div>
+{% endfor %}
+</div>
+    
+    {% endblock content %}
